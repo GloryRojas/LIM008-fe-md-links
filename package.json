@@ -1,8 +1,8 @@
 {
-  "name": "social-network",
+  "name": "md-links",
   "version": "1.0.0",
-  "description": "Social Network @ Laboratoria",
-  "main": "src/index.html",
+  "description": "MD-Links @ Laboratoria",
+  "main": "src/cli.js",
   "keywords": [
     "javascript",
     "npm",
@@ -24,4 +24,3 @@
     "regenerator-runtime": "^0.13.1"
   }
 }
-
