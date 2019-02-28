@@ -23,8 +23,10 @@ describe('rutaEsAbsoluta', () => {
     it('debería ser una función', () => {
         expect(typeof rutaEsArchivo).toBe('function');
     });
-    it('debería devolver true si ruta es archivo', () => {
-        expect(rutaEsArchivo('C:\Users\Laboratoria\Documents\Projects\LIM008-fe-md-links\package.json')).toBe(true);
+    it('debería devolver false si ruta no es archivo', () => {
+        expect(rutaEsArchivo('C:\\Users\\Glory\\Documents\\Laboratoria 18-19\\LIM008-fe-md-links')).toBe(false);
+        console.log(rutaEsArchivo);
+        
     });
   })
 

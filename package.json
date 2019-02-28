@@ -26,7 +26,9 @@
   "directories": {
     "test": "test"
   },
-  "dependencies": {},
+  "dependencies": {
+    "mailgun-js": "^0.22.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/GloryRojas/LIM008-fe-md-links.git"

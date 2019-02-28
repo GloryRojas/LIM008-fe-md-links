@@ -10,6 +10,5 @@ export const transformarAAbsoluta = (ruta) => {
  };
  
 export const rutaEsArchivo = (ruta) => {
-    let rutilla = fs.statSync(ruta)
-    return rutilla.isFile();
+    return fs.statSync(ruta).isFile();
  };
