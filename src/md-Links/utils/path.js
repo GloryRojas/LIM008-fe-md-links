@@ -1,14 +1,26 @@
 const path = require('path');
 const fs = require('fs');
 
-export const rutaEsAbsoluta = (ruta) => {
-   return path.isAbsolute(ruta);
-};
+const rutaEsAbsoluta = (ruta) => path.isAbsolute(ruta);
 
-export const transformarAAbsoluta = (ruta) => {
-    return path.resolve(ruta);
- };
+const transformarAAbsoluta = (ruta) => path.resolve(ruta);
  
-export const rutaEsArchivo = (ruta) => {
-    return fs.statSync(ruta).isFile();
+const rutaEsArchivo = (ruta) => {
+    let arrayRuta = [];
+    let esArchivo = fs.statSync(ruta).isFile();
+    if (esArchivo === true ){
+        arrayRuta.push(ruta);
+    }
+    return arrayRuta;
  };
+
+const recorrerCarpeta = (ruta) => {
+  let listaArchivos = fs.readdirSync(ruta);
+  let arrayArchivos = [];
+    for(let i=0; i< listaArchivos.length; i++){
+     arrayArchivos.push(ruta + '\\' + listaArchivos[i]);
+    }
+  return arrayArchivos;
+}
+console.log(recorrerCarpeta('C:\\Users\\Laboratoria\\Documents\\Projects\\LIM008-fe-md-links'));
+
