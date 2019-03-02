@@ -1,12 +1,13 @@
 import { rutaEsAbsoluta, transformarAAbsoluta} from '../src/md-Links/utils/path.js';
-import { rutaEsArchivo, recorrerCarpeta } from '../src/md-Links/utils/filesystem.js';
+import { rutaEsArchivo } from '../src/md-Links/utils/filesystem.js';
 import { filtrarArchivosMd } from '../src/md-Links/utils/md.js';
 
-const output = ["C:\\Users\\Laboratoria\\Documents\\Projects\\LIM008-fe-md-links\\src\\md-links\\utils\\filesystem.js",  
+const output = ['C:\\Users\\Laboratoria\\Documents\\Projects\\LIM008-fe-md-links\\src\\md-links\\index.js',
+                'C:\\Users\\Laboratoria\\Documents\\Projects\\LIM008-fe-md-links\\src\\md-links\\utils\\filesystem.js',  
                 "C:\\Users\\Laboratoria\\Documents\\Projects\\LIM008-fe-md-links\\src\\md-links\\utils\\md.js", 
                 "C:\\Users\\Laboratoria\\Documents\\Projects\\LIM008-fe-md-links\\src\\md-links\\utils\\path.js"
             ];
-const input1 = ['.\\Documents\\Projects\\arch1.exe',
+const input1 = ['.\\Documents\\Projects\\.gitignore',
                 '.\\Documents\\Projects\\arch2.txt',
                 '.\\Documents\\Projects\\arch3.md',
                 '.\\Documents\\Projects\\arch4.exe',
@@ -47,14 +48,6 @@ describe('rutaEsArchivo', () => {
     });
     it('debería devolver un array si ruta es archivo', () => {
         expect(rutaEsArchivo('C:\\Users\\Laboratoria\\Documents\\pruebas.txt')).toEqual(["C:\\Users\\Laboratoria\\Documents\\pruebas.txt"]);        
-    });
-})
-describe('recorrerCarpeta', () => {
-    it('debería ser una función', () => {
-        expect(typeof recorrerCarpeta).toBe('function');
-    });
-    it('debería devolver un array con todas las rutas de archivos del directorio', () => {
-        expect(recorrerCarpeta('C:\\Users\\Laboratoria\\Documents\\Projects\\LIM008-fe-md-links\\src\\md-links\\utils')).toEqual(output);
     });
 })
 describe('filtrarArchivosMd', () => {
