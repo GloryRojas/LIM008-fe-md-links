@@ -1,6 +1,5 @@
-import { rutaEsAbsoluta, transformarAAbsoluta} from '../src/md-Links/utils/path.js';
+import { rutaEsAbsoluta, transformarAAbsoluta, filtrarArchivosMd} from '../src/md-Links/utils/path.js';
 import { rutaEsArchivo } from '../src/md-Links/utils/filesystem.js';
-import { filtrarArchivosMd } from '../src/md-Links/utils/md.js';
 
 const output = ['C:\\Users\\Laboratoria\\Documents\\Projects\\LIM008-fe-md-links\\src\\md-links\\index.js',
                 'C:\\Users\\Laboratoria\\Documents\\Projects\\LIM008-fe-md-links\\src\\md-links\\utils\\filesystem.js',  
@@ -47,7 +46,7 @@ describe('rutaEsArchivo', () => {
         expect(rutaEsArchivo('C:\\Users\\Laboratoria\\Documents\\Projects\\LIM008-fe-md-links\\package.json')).toBe(true);        
     });
     it('debería devolver un array si ruta es archivo', () => {
-        expect(rutaEsArchivo('C:\\Users\\Laboratoria\\Documents\\pruebas.txt')).toEqual(["C:\\Users\\Laboratoria\\Documents\\pruebas.txt"]);        
+        expect(rutaEsArchivo('C:\\Users\\Glory\\Documents\\Laboratoria 18-19\\LINKS.docx')).toEqual(['C:\\Users\\Glory\\Documents\\Laboratoria 18-19\\LINKS.docx']);        
     });
 })
 describe('filtrarArchivosMd', () => {
