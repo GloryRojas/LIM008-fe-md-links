@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const marked = require('marked'); 
+const myMarked = require('marked'); 
 
 const rutaEsArchivo = (ruta) => {
     let arrayRuta = [];
@@ -40,7 +40,8 @@ const extraerLinks = (arrRutasArchivos) => {
     for(let i=0; i<arrRutasArchivos.length; i++) {
         let archivo = arrRutasArchivos[i]
         let leerArchivo = fs.readFileSync(archivo, 'utf8');
-        const renderer = new marked.Renderer();
+        const renderer = new myMarked.Renderer();
+        //console.log(renderer);
         renderer.link = (href, title, text) => {
             links.push({
             href: href,
@@ -48,7 +49,7 @@ const extraerLinks = (arrRutasArchivos) => {
             file: archivo,
             });
         };
-        marked(leerArchivo, { renderer });
+        myMarked(leerArchivo, { renderer: renderer });
     }
     return links;
   }
