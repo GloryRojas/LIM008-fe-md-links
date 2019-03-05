@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const myMarked = require('marked'); 
 
-const rutaEsArchivo = (ruta) => {
+export const rutaEsArchivo = (ruta) => {
     let arrayRuta = [];
     let esArchivo = fs.statSync(ruta).isFile();
     if (esArchivo === true ){
@@ -35,20 +35,21 @@ const arrayMd = filtrarArchivosMd(rutas);
 }
 console.log(leerArchivo('.//ejemplo.md')); */
 
-const extraerLinks = (arrRutasArchivos) => {
+export const extraerLinks = (arrRutasArchivos) => {
     const links = [];
     for(let i=0; i<arrRutasArchivos.length; i++) {
         let archivo = arrRutasArchivos[i]
         let leerArchivo = fs.readFileSync(archivo, 'utf8');
         const renderer = new myMarked.Renderer();
-        console.log(renderer);
+        //console.log(renderer);
         renderer.link = (href, title, text) => {
-            links.push({
+           return links.push({
             href: href,
             text: text,
             file: archivo,
             });
         };
+        console.log(renderer.link)
         myMarked(leerArchivo, { renderer: renderer });
     }
     return links;
