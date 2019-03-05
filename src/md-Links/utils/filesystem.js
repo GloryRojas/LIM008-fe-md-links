@@ -1,6 +1,8 @@
 const fs = require('fs');
- 
-/* export const rutaEsArchivo = (ruta) => {
+const path = require('path');
+const marked = require('marked'); 
+
+export const rutaEsArchivo = (ruta) => {
     let arrayRuta = [];
     let esArchivo = fs.statSync(ruta).isFile();
     if (esArchivo === true ){
@@ -17,12 +19,37 @@ const fs = require('fs');
         }
     }
     return arrayRuta;
-}; */
+};
 
-//console.log(rutaEsArchivo('C:\\Users\\Glory\\Documents\\Laboratoria 18-19\\LIM008-fe-md-links\\src'));
+const rutas = rutaEsArchivo('C:\\Users\\Glory\\Documents\\Laboratoria 18-19\\LIM008-fe-md-links\\src\\md-links\\utils');
+//console.log(rutas);
 
-const leerArchivo = (ruta) => {
+const filtrarArchivosMd = (arrRutasArchivos)  => arrRutasArchivos.filter(arr => path.extname(arr) === '.md' );
+
+const arrayMd = filtrarArchivosMd(rutas);
+//console.log(arrayMd);
+
+/* const leerArchivo = (ruta) => {
    let array1 = [(fs.readFileSync(ruta, 'utf-8'))];
    return array1;
 }
-console.log(leerArchivo('.//ejemplo.md'));
+console.log(leerArchivo('.//ejemplo.md')); */
+
+export const extraerLinks = (arrFiles) => {
+    const links = [];
+    arrFiles.forEach(file => {
+      const leerArchivo = fs.readFileSync(file, 'utf8');
+      const renderer = new marked.Renderer();
+      renderer.link = (href, title, text) => {
+        links.push({
+          href: href,
+          text: text,
+          file: file,
+        });
+      };
+      marked(leerArchivo, { renderer });
+    })
+    return links;
+  }
+
+//console.log(extraerLinks(arrayMd));
