@@ -26,3 +26,4 @@ const leerArchivo = (ruta) => {
    return array1;
 }
 console.log(leerArchivo('.//ejemplo.md'));
+
