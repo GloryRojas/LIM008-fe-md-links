@@ -35,16 +35,16 @@ const arrayMd = filtrarArchivosMd(rutas);
 }
 console.log(leerArchivo('.//ejemplo.md')); */
 
-export const extraerLinks = (arrFiles) => {
+export const extraerLinks = (arrRutasArchivos) => {
     const links = [];
-    arrFiles.forEach(file => {
-      const leerArchivo = fs.readFileSync(file, 'utf8');
+    arrRutasArchivos.forEach(archivo => {
+      const leerArchivo = fs.readFileSync(archivo, 'utf8');
       const renderer = new marked.Renderer();
       renderer.link = (href, title, text) => {
         links.push({
           href: href,
           text: text,
-          file: file,
+          file: archivo,
         });
       };
       marked(leerArchivo, { renderer });
