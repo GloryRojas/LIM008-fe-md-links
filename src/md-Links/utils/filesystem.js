@@ -41,7 +41,6 @@ export const extraerLinks = (arrRutasArchivos) => {
         let archivo = arrRutasArchivos[i]
         let leerArchivo = fs.readFileSync(archivo, 'utf8');
         const renderer = new myMarked.Renderer();
-        //console.log(renderer);
         renderer.link = (href, title, text) => {
            return links.push({
             href: href,
@@ -49,7 +48,6 @@ export const extraerLinks = (arrRutasArchivos) => {
             file: archivo,
             });
         };
-        console.log(renderer.link)
         myMarked(leerArchivo, { renderer: renderer });
     }
     return links;
