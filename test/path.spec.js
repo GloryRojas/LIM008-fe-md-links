@@ -104,6 +104,9 @@ describe('validarLinks', () => {
         expect(typeof validarLinks).toBe('function');
     });
     it('debería devolver un array con todas las propiedades de los links y agregandole status y code a cada uno', () => {
-        expect(extraerLinks(output3)).toEqual(output4);
+        return validarLinks(output3)
+        .then(response => {
+            expect(response).toEqual(output4);
+        });
     });
 })
