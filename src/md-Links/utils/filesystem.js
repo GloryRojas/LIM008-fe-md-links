@@ -35,10 +35,10 @@ const filtrarArchivosMd = (arrRutasArchivos)  => arrRutasArchivos.filter(arr => 
 }
 console.log(leerArchivo('.//ejemplo.md')); */
 
-export const extraerLinks = (arrRutasArchivos) => {
+export const extraerLinks = (arrRutasArchivosMd) => {
     const links = [];
-    for(let i=0; i<arrRutasArchivos.length; i++) {
-        let archivo = arrRutasArchivos[i];
+    for(let i=0; i<arrRutasArchivosMd.length; i++) {
+        let archivo = arrRutasArchivosMd[i];
         let leerArchivo = fs.readFileSync(archivo, 'utf8');
         const renderer = new myMarked.Renderer();
         renderer.link = (href, title, text) => {
