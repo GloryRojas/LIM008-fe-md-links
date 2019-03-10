@@ -17,4 +17,4 @@ export const extraerLinks = (arrRutasArchivosMd) => {
         myMarked(contArchivo, { renderer: renderer });
     }
     return links;
-  }
+}

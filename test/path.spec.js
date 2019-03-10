@@ -31,7 +31,7 @@ describe('transformarAAbsoluta', () => {
         expect(typeof transformarAAbsoluta).toBe('function');
     });
     it('Debería transformar una ruta relativa en absoluta', () => {
-        expect(transformarAAbsoluta('C:\\Users\\Laboratoria\\Documents\\Projects\\foo\\bar')).toBe('C:\\Users\\Laboratoria\\Documents\\Projects\\foo\\bar')
+        expect(transformarAAbsoluta('..\\LIM008-fe-md-links')).toBe('C:\\Users\\Glory\\Documents\\Laboratoria 18-19\\LIM008-fe-md-links')
     });
 })
 describe('filtrarArchivosMd', () => {
