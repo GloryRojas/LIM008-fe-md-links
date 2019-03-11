@@ -21,12 +21,12 @@ export const rutaEsArchivo = (ruta) => {
     return arrayRuta;
 };
 
-//const rutas = rutaEsArchivo('C:\\Users\\Laboratoria\\Documents\\Projects\\LIM008-fe-md-links\\src\\md-links\\utils');
+const rutas = rutaEsArchivo('C:\\Users\\Laboratoria\\Documents\\Projects\\LIM008-fe-md-links\\src\\md-links\\utils');
 //console.log(rutas);
 
 const filtrarArchivosMd = (arrRutasArchivos)  => arrRutasArchivos.filter(arr => path.extname(arr) === '.md' );
 
-//const arrayMd = filtrarArchivosMd(rutas);
+const arrayMd = filtrarArchivosMd(rutas);
 //console.log(arrayMd);
 
 /* const leerArchivo = (ruta) => {
@@ -41,6 +41,7 @@ export const extraerLinks = (arrRutasArchivosMd) => {
         let archivo = arrRutasArchivosMd[i];
         let leerArchivo = fs.readFileSync(archivo, 'utf8');
         const renderer = new myMarked.Renderer();
+      //myMarked(leerArchivo, { renderer: renderer });
         renderer.link = (href, title, text) => {
            return links.push({
             href: href,
@@ -53,4 +54,4 @@ export const extraerLinks = (arrRutasArchivosMd) => {
     return links;
   }
 
-//console.log(extraerLinks(arrayMd));
+console.log(extraerLinks(arrayMd));

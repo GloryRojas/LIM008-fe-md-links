@@ -11,7 +11,7 @@ const fetch = require('node-fetch') ;
 
 console.log(estadoLink('https://www.npmjs.com/package/node-fetch#iface-body'));
  */
-const output3 = [ 
+const output4 = [ 
     { href: 'http://as01.epimg.net/epik/imagenes/2018/04/28/portada/1524913221_572475_1524913364_noticia_normal.jpg',
     text: 'Perrito',
     file: 'C:\\Users\\Glory\\Documents\\Laboratoria 18-19\\LIM008-fe-md-links\\src\\md-links\\utils\\ejemplo.md'
@@ -44,4 +44,4 @@ export const validarLinks = (arrayObjetos) => {
         .catch((err) => err.message)
  }
 
- //validarLinks(output4);
+ validarLinks(output4);
