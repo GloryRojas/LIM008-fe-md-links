@@ -36,11 +36,11 @@ export const templateDeResultado = (arrObj) => {
         let obj = ``;
         if(objlength.length === 5){
             obj = `
-            ${link.file}, ${link.href}, ${link.text}, ${link.code}, ${link.stat}
+${link.file}, ${link.href}, ${link.text}, ${link.code}, ${link.stat}
             `;
         }else{
             obj = `
-            ${link.file}, ${link.href}, ${link.text}
+${link.file}, ${link.href}, ${link.text}
             `;  
         }
       templateListOfLinks += obj;
