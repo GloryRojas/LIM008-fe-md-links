@@ -1,9 +1,8 @@
 #!/usr/bin/env node
 
-import {mdLinks} from '../lib/md-Links/md-links';
-
 console.log("Hello world");
 
+const mdLinks = require("./md-Links/md-links");
 const opciones = {
     validate: true,
     stats: false
