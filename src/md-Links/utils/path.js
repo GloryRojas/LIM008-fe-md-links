@@ -1,5 +1,3 @@
-import { rutaEsArchivo } from './filesystem';
-
 const path = require('path');
 
 export const rutaEsAbsoluta = ruta => path.isAbsolute(ruta);
