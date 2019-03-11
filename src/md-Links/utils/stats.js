@@ -1,76 +1,29 @@
-const data = 
-[ { href: 'https://es.wikipedia.org/wiki/Markdown',
-text: 'Markdown',
-file: 'C:\\Users\\Laboratoria\\Desktop\\Markdown\\LIM008-fe-md-links\\directoryForTest\\FILEMD.md',
-status: 200,
-statusText: 'OK' },
-{ href: 'https://es.wikipedia.org/wiki/Markdown',
-text: 'Markdown',
-file: 'C:\\Users\\Laboratoria\\Desktop\\Markdown\\LIM008-fe-md-links\\directoryForTest\\FILEMD.md',
-status: 200,
-statusText: 'OK' },
-{ href: 'https://www.w3schools.com/jsref/jsref_reduce.asp',
-text: 'Markdown',
-file: 'C:\\Users\\Laboratoria\\Desktop\\Markdown\\LIM008-fe-md-links\\directoryForTest\\FILEMD.md',
-status: 200,
-statusText: 'OK' },
-{ href: 'https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_reduce2',
-text: 'Markdown',
-file: 'C:\\Users\\Laboratoria\\Desktop\\Markdown\\LIM008-fe-md-links\\directoryForTest\\FILEMD.md',
-status: 200,
-statusText: 'OK' },
-{ href: 'https://es.wikipedia.org/wiki/Markdown',
-text: 'Pruebita',
-file: 'C:\\Users\\Laboratoria\\Desktop\\Markdown\\LIM008-fe-md-links\\directoryForTest\\FILEMD.md',
-status: 200,
-statusText: 'OK' },
-{ href: 'https://developer.mozilla.org/es/docs/Web/JavaScript/Refere',
-text: 'Prueba',
-file: 'C:\\Users\\Laboratoria\\Desktop\\Markdown\\LIM008-fe-md-links\\directoryForTest\\FILEMD.md',
-status: 404,
-statusText: 'fail' } ];
-
-export const uniqueLinks = (arrObj) => {
-const arrUniques = arrObj.reduce((acum, ele) => {
-    if(acum.indexOf(ele.href) === -1){
-        acum.push(ele.href);
-    }
-    return acum;
-}, []);
-// console.log(arrUniques);
-return arrUniques.length;
+export const linksUnicos = (arrObj) => {
+    const arrUnicos = arrObj.reduce((acum, obj) => {
+        if(acum.indexOf(obj.href) === -1){
+            acum.push(obj.href);
+        }
+        return acum;
+    }, []);
+    return arrUnicos.length;
 }
-
-// console.log(uniqueLinks(data));
-
-export const brokenLinks = (arrObj) => {
-const arrBroken = arrObj.reduce((acum, ele) => {
-    if(ele.statusText === 'fail'){
-        acum.push(ele.href);
-    }
-    return acum;
-}, []);
-return arrBroken.length;
+    
+export const linksRotos = (arrObj) => {
+    const arrRotos = arrObj.filter(obj => obj.stat === 'FAIL');
+    return arrRotos.length;
 }
-// console.log(brokenLinks(data));
-
-export const stats = (arrObj, condition) => {
-    const valid = condition;
+    
+export const estadisticas = (arrObj, opcion) => {
     let result;
-    if(valid === 'validate'){
-     result = `
-Total: ${arrObj.length}
-Unicos: ${uniqueLinks(arrObj)}
-Rotos: ${brokenLinks(arrObj)}
-        `;
+    if(opcion === 'validate'){
+        result = 
+`Total: ${arrObj.length}
+Unicos: ${linksUnicos(arrObj)}
+Rotos: ${linksRotos(arrObj)}`;
     }else{
-      result = `
+        result = `
 Total: ${arrObj.length}
-Unicos: ${uniqueLinks(arrObj)}
-     `;
+Unicos: ${linksUnicos(arrObj)}`;
     }
     return result;
 }
-
-console.log(stats(data));
-console.log(stats(data, 'validate'));

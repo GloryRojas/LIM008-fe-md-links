@@ -1,1 +1,0 @@
-let glory = 'Hola Baby'
