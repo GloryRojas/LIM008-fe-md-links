@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { mdLinks } from "./md-Links/md-links.js"
-
+import { estadisticas } from '../src/stats.js';
 //mdLinks('./src', opciones).then(resp => console.log(resp));
 
 const [,, ...args] = process.argv;
