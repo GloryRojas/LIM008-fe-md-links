@@ -2,7 +2,7 @@ import { validarLinks } from './utils/validate.js';
 import { devolverRutaAbsoluta, recorrerCarpeta } from './utils/moduls.js';
 import { extraerLinks } from './utils/link.js';
 
-export default (path, options) => new Promise ((resolve, reject) =>{
+export const mdLinks = (path, options) => new Promise ((resolve, reject) =>{
     const rutaAbs = devolverRutaAbsoluta(path);
     const objLinks = extraerLinks(recorrerCarpeta(rutaAbs));
     if (options === undefined){

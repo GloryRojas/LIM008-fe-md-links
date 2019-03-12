@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import mdLinks from './md-Links/md-links.js';
+import { mdLinks } from './md-Links/md-links.js';
 import { estadisticas } from './stats.js';
 import { templateDeResultado } from './md-Links/utils/moduls.js';
 
