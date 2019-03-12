@@ -19,4 +19,5 @@ export const mdLinks = (path, options) => new Promise ((resolve, reject) =>{
     }
 });
 
-// mdLinks('./src', opciones).then(resp => console.log(resp));
+mdLinks('./src', {validate: true}).then(resp => console.log(resp));
+mdLinks('./src', {validate: false}).then(resp => console.log(resp));
