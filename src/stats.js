@@ -21,8 +21,7 @@ export const estadisticas = (arrObj, opcion) => {
 Unicos: ${linksUnicos(arrObj)}
 Rotos: ${linksRotos(arrObj)}`;
     }else{
-        result = `
-Total: ${arrObj.length}
+        result = `Total: ${arrObj.length}
 Unicos: ${linksUnicos(arrObj)}`;
     }
     return result;
