@@ -1,9 +1,9 @@
 export const linksUnicos = (arrObj) => {
-    const arrUnicos = arrObj.reduce((acum, obj) => {
-        if(acum.indexOf(obj.href) === -1){
-            acum.push(obj.href);
+    const arrUnicos = arrObj.reduce((ant, obj) => {
+        if(ant.indexOf(obj.href) === -1){
+            ant.push(obj.href);
         }
-        return acum;
+        return ant;
     }, []);
     return arrUnicos.length;
 }
@@ -21,8 +21,7 @@ export const estadisticas = (arrObj, opcion) => {
 Unicos: ${linksUnicos(arrObj)}
 Rotos: ${linksRotos(arrObj)}`;
     }else{
-        result = `
-Total: ${arrObj.length}
+        result = `Total: ${arrObj.length}
 Unicos: ${linksUnicos(arrObj)}`;
     }
     return result;
