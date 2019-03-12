@@ -2,7 +2,7 @@
 
 import { estadisticas } from './stats.js';
 import { templateDeResultado } from './md-Links/utils/moduls.js';
-const mdLinks = require('./md-Links/md-links.js');
+const mdLinks = require('./md-links');
 
 const [,, ...args] = process.argv;
 if (args[1] === '--validate' && args[2] === '--stats'){

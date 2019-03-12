@@ -6,10 +6,13 @@ Estos archivos `Markdown` normalmente contienen _links_ (vínculos/ligas) que mu
 
 ## Instrucciones de instalación y uso
 
-Para instalar este módulo lo puedes realizar via `npm install gloryrojas/md-links`. 
-Además este módulo incluye una interfaz que podemos importar con `require` para usarlo programáticamente.
+Esta librería cuenta con un ejecutable CLI via npm y una interfaz que podra ser importado con require, el detalle de cada uno líneas abajo.
 
 ### JavaScript API
+
+Para utilizar este módulo programaticamente deberas importarlo en tu archivo .js así:
+
+####`const mdLinks = require('./md-links')`
 
 El módulo ofrece la siguiente interfaz:
 
@@ -33,7 +36,7 @@ La función retorna una promesa (`Promise`) que resuelve a un arreglo (`Array`) 
 #### Ejemplo
 
 ```js
-const mdLinks = require("md-links");
+const mdLinks = require('./md-links');
 
 mdLinks("./some/example.md")
   .then(links => {
@@ -50,6 +53,8 @@ mdLinks("./some/example.md", { validate: true })
 ```
 
 ### CLI (Command Line Interface - Interfaz de Línea de Comando)
+
+Para instalar este módulo lo puedes realizar via `npm install gloryrojas/md-links`. 
 
 El ejecutable de nuestra aplicación puede ejecutarse de la siguiente manera a través de la terminal:
 
