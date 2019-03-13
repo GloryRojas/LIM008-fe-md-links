@@ -1,10 +1,10 @@
 import { rutaEsArchivo, leerArchivo, leerDirectorio} from '../src/md-Links/utils/fs.js'; 
 
 // Declarando parametros para las funciones a testear
-const rutaArchivo = 'C:\\Users\\Glory\\Documents\\Laboratoria 18-19\\LIM008-fe-md-links\\src\\md-Links\\utils\\ejemplos-md\\archivo3.txt';
-const rutaDirectorio = 'C:\\Users\\Glory\\Documents\\Laboratoria 18-19\\LIM008-fe-md-links\\src\\md-Links\\utils';
+const rutaArchivo = `${process.cwd()}\\src\\md-Links\\utils\\ejemplos-md\\archivo3.txt`;
+const rutaDirectorio = `${process.cwd()}\\src\\md-Links\\utils`;
 const output = 'Hola Mundo';
-const output1 = ["ejemplo.md", "ejemplos-md", "fs.js", "link.js", "moduls.js", "path.js", "stats.js", "validate.js"];
+const output1 = ["ejemplo.md", "ejemplos-md", "fs.js", "link.js", "moduls.js", "path.js", "validate.js"];
 
 // Test unitarios para el método fs
 describe('rutaEsArchivo', () => {

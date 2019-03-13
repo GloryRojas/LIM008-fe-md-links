@@ -1,4 +1,4 @@
-import {linksUnicos, linksRotos, estadisticas} from '../src/md-Links/utils/stats.js';
+import {linksUnicos, linksRotos } from '../src/stats.js';
 
 const arrLinks = [ 
                 { href: 'http://as01.epimg.net/epik/imagenes/2018/04/28/portada/1524913221_572475_1524913364_noticia_normal.jpg',
