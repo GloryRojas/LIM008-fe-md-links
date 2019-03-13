@@ -1,4 +1,4 @@
-import { validarLinks } from '../src/md-Links/utils/validate.js';
+import { validarLinks } from '../src/md-Links/validate.js';
 
 const fetchMock = require('../mock_fetch/mock.js');
 fetchMock.config.sendAsJson = false;
@@ -7,24 +7,24 @@ fetchMock.config.fallbackToNetwork = true;
 const input = [ 
     { href: 'http://as01.epimg.net/epik/imagenes/2018/04/28/portada/1524913221_572475_1524913364_noticia_normal.jpg',
       text: 'Perrito',
-      file: `${process.cwd()}\\src\\md-links\\utils\\ejemplo.md` }];
+      file: `${process.cwd()}\\src\\md-links\\ejemplo.md` }];
 
 const output = [ 
     { href: 'http://as01.epimg.net/epik/imagenes/2018/04/28/portada/1524913221_572475_1524913364_noticia_normal.jpg',
     text: 'Perrito',
-    file: `${process.cwd()}\\src\\md-links\\utils\\ejemplo.md`,
+    file: `${process.cwd()}\\src\\md-links\\ejemplo.md`,
     stat: 'OK',
     code: 200,
     }];
 const input1 = [ 
     { href: 'https://gloryrojas.github.io/lim-2018-11-bc-core-am-cipher/src/&quot;',
     text: 'https://gloryrojas.github.io/lim-2018-11-bc-core-am-cipher/src/&quot;',
-    file: `${process.cwd()}\\src\\md-links\\utils\\ejemplos-md\\archivo1.md` }];
+    file: `${process.cwd()}\\src\\md-links\\ejemplos-md\\archivo1.md` }];
 
 const output1 = [ 
     { href: 'https://gloryrojas.github.io/lim-2018-11-bc-core-am-cipher/src/&quot;',
     text: 'https://gloryrojas.github.io/lim-2018-11-bc-core-am-cipher/src/&quot;',
-    file: `${process.cwd()}\\src\\md-links\\utils\\ejemplos-md\\archivo1.md`, 
+    file: `${process.cwd()}\\src\\md-links\\ejemplos-md\\archivo1.md`, 
     stat: 'FAIL',
     code: 404
     }];

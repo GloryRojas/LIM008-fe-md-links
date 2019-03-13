@@ -1,8 +1,8 @@
-import { rutaEsArchivo, leerArchivo, leerDirectorio} from '../src/md-Links/utils/fs.js'; 
+import { rutaEsArchivo, leerArchivo, leerDirectorio} from '../src/md-Links/fs.js'; 
 
 // Declarando parametros para las funciones a testear
-const rutaArchivo = `${process.cwd()}\\src\\md-Links\\utils\\ejemplos-md\\archivo3.txt`;
-const rutaDirectorio = `${process.cwd()}\\src\\md-Links\\utils`;
+const rutaArchivo = `${process.cwd()}\\src\\md-Links\\ejemplos-md\\archivo3.txt`;
+const rutaDirectorio = `${process.cwd()}\\src\\md-Links`;
 const output = 'Hola Mundo';
 const output1 = ["ejemplo.md", "ejemplos-md", "fs.js", "link.js", "moduls.js", "path.js", "validate.js"];
 

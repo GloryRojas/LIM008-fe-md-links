@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { estadisticas } from './stats.js';
-import { templateDeResultado } from './md-Links/utils/moduls.js';
+import { templateDeResultado } from './md-Links/moduls.js';
 const mdLinks = require('./md-links');
 
 const [,, ...args] = process.argv;
