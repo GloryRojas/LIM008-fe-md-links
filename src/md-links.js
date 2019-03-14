@@ -1,6 +1,6 @@
-import { validarLinks } from './md-Links/validate.js';
-import { devolverRutaAbsoluta, recorrerCarpeta } from './md-Links/moduls.js';
-import { extraerLinks } from './md-Links/link.js';
+import { validarLinks } from './md-links/validate.js';
+import { devolverRutaAbsoluta, recorrerCarpeta } from './md-links/moduls.js';
+import { extraerLinks } from './md-links/link.js';
 
 const mdLinks = (path, options) => new Promise((resolve, reject) => {
   const rutaAbs = devolverRutaAbsoluta(path);
