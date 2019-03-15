@@ -1,15 +1,10 @@
-import { rutaEsArchivo, leerDirectorio } from './fs.js';
-import { rutaEsAbsoluta, transformarAAbsoluta, filtrarArchivosMd } from './path.js';
+const path = require('path');
 
-export const devolverRutaAbsoluta = (ruta) => {
-  let rutaAbs = '';
-  if (rutaEsAbsoluta(ruta)) {
-    rutaAbs = ruta;
-  } else {
-    rutaAbs = transformarAAbsoluta(ruta);
-  }
-  return rutaAbs;
-};
+import { rutaEsArchivo, leerDirectorio } from './fs.js';
+
+export const transformarAAbsoluta = ruta => path.resolve(ruta);
+
+export const filtrarArchivosMd = arrRutasArchivos => arrRutasArchivos.filter(arr => path.extname(arr) === '.md');
 
 export const recorrerCarpeta = (ruta) => {
   let arrayRutasArchivos = [];
@@ -18,12 +13,8 @@ export const recorrerCarpeta = (ruta) => {
   } else {
     let listaArchivos = leerDirectorio(ruta);
     for (let i = 0; i < listaArchivos.length; i++) {
-      let rutaArchivos = ruta + '\\' + listaArchivos[i];
-      if (rutaEsArchivo(rutaArchivos)) {
-        arrayRutasArchivos.push(rutaArchivos);
-      } else {
+      let rutaArchivos = path.join(ruta, listaArchivos[i]);
         arrayRutasArchivos = arrayRutasArchivos.concat(recorrerCarpeta(rutaArchivos));
-      }
     }
   }
   return filtrarArchivosMd(arrayRutasArchivos);
@@ -32,12 +23,7 @@ export const recorrerCarpeta = (ruta) => {
 export const templateDeResultado = (arrObj) => {
   let templateListOfLinks = '';
   arrObj.forEach((link) => {
-    const objlength = Object.keys(link);
-    let obj = '';
-    if (objlength.length === 5) {
-      obj = `${link.file}, ${link.href}, ${link.text}, ${link.code ? link.code : ''}, ${link.stat ? link.stat : ''}
- `;
-    }
+    let obj = `${link.file}, ${link.href}, ${link.text}, ${link.code ? link.code : ''}, ${link.stat ? link.stat : ''}\n`;
     templateListOfLinks += obj;
   });
   return templateListOfLinks;

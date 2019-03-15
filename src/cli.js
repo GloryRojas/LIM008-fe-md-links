@@ -17,13 +17,10 @@ export const cli = (args) => new Promise((resolve) => {
   } else if (args[0] === undefined) {
     resolve('Ingrese la ruta que desea analizar despues de md-links. \n Ejemplo: md-links ./some/example.md ');
   } else if (args[1] === undefined) {
-    resolve(mdLinks(args[0]).then(resp => resolve(templateDeResultado(resp))));
+    mdLinks(args[0]).then(resp => resolve(templateDeResultado(resp)));
   } else {
     mdLinks(args[0]).then(resp => resolve(templateDeResultado(resp)));
   }
 });
-
-// cli(args1).then(resp => console.log('cli', resp));
-console.log(args1);
-
+cli(args1).then(resp => console.log(resp));
 
