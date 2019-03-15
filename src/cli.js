@@ -5,21 +5,21 @@ const mdLinks = require('./md-links');
 
 const [,, ...args1] = process.argv;
 
-export const cli = (args) => { 
+export const cli = (args) => new Promise((resolve) => { 
   if (args[1] === '--validate' && args[2] === '--stats') {
-    mdLinks(args[0], {validate: true}).then(resp => console.log('1', estadisticas(resp, 'validate')));
+    mdLinks(args[0], {validate: true}).then(resp => resolve(estadisticas(resp, 'validate')));
   } else if (args[1] === '--stats' && args[2] === '--validate') {
-    mdLinks(args[0], {validate: true}).then(resp => console.log('2', estadisticas(resp, 'validate')));
+    mdLinks(args[0], {validate: true}).then(resp => resolve(estadisticas(resp, 'validate')));
   } else if (args[1] === '--validate') {  
-    mdLinks(args[0], {validate: true}).then(resp => console.log('3', templateDeResultado(resp)));
+    mdLinks(args[0], {validate: true}).then(resp => resolve(templateDeResultado(resp)));
   } else if (args[1] === '--stats') {
-    mdLinks(args[0]).then(resp => console.log('3', estadisticas(resp)));
+    mdLinks(args[0]).then(resp => resolve(estadisticas(resp)));
   } else if (args[0] === undefined) {
-    console.log('Ingrese la ruta que desea analizar despues de md-links. \n Ejemplo: md-links ./some/example.md ');
+    resolve('Ingrese la ruta que desea analizar despues de md-links. \n Ejemplo: md-links ./some/example.md ');
   } else {
-    mdLinks(args[0]).then(resp => console.log('4', templateDeResultado(resp)));
+    mdLinks(args[0]).then(resp => resolve(templateDeResultado(resp)));
   }
-};
+});
 
-cli(args1);
+cli(args1).then(resp => console.log('cli', resp));
 
