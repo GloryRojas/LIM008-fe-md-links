@@ -47,7 +47,7 @@ describe('estadisticas', () => {
   it('Debería retornar un template con informacion de los links', () => {
     expect(estadisticas(arrLinks)).toEqual(output1);
   });
-  it('Debería retornar un template con informacion de los links', () => {
+  it('Debería retornar un template con informacion de los links validados', () => {
     expect(estadisticas(arrLinks, 'validate')).toEqual(output);
   });
 });

@@ -17,12 +17,9 @@ export const estadisticas = (arrObj, opcion) => {
   let result;
   if (opcion === 'validate') {
     result = 
-`Total: ${arrObj.length}
-Unicos: ${linksUnicos(arrObj)}
-Rotos: ${linksRotos(arrObj)}`;
+`Total: ${arrObj.length}\nUnicos: ${linksUnicos(arrObj)}\nRotos: ${linksRotos(arrObj)}`;
   } else {
-    result = `Total: ${arrObj.length}
-Unicos: ${linksUnicos(arrObj)}`;
+    result = `Total: ${arrObj.length}\nUnicos: ${linksUnicos(arrObj)}`;
   }
   return result;
 };

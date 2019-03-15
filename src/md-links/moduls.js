@@ -35,13 +35,8 @@ export const templateDeResultado = (arrObj) => {
     const objlength = Object.keys(link);
     let obj = '';
     if (objlength.length === 5) {
-      obj = `
-${link.file}, ${link.href}, ${link.text}, ${link.code}, ${link.stat}
-            `;
-    } else {
-      obj = `
-${link.file}, ${link.href}, ${link.text}
-            `;  
+      obj = `${link.file}, ${link.href}, ${link.text}, ${link.code ? link.code : ''}, ${link.stat ? link.stat : ''}
+ `;
     }
     templateListOfLinks += obj;
   });
