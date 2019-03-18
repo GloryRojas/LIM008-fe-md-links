@@ -1,6 +1,5 @@
 const path = require('path');
-
-import { rutaEsArchivo, leerDirectorio } from './fs.js';
+const fs = require('fs');
 
 export const transformarAAbsoluta = ruta => path.resolve(ruta);
 
@@ -8,13 +7,13 @@ export const filtrarArchivosMd = arrRutasArchivos => arrRutasArchivos.filter(arr
 
 export const recorrerCarpeta = (ruta) => {
   let arrayRutasArchivos = [];
-  if (rutaEsArchivo(ruta)) {
+  if (fs.statSync(ruta).isFile()) {
     arrayRutasArchivos.push(ruta);
   } else {
-    let listaArchivos = leerDirectorio(ruta);
+    let listaArchivos = fs.readdirSync(ruta);
     for (let i = 0; i < listaArchivos.length; i++) {
       let rutaArchivos = path.join(ruta, listaArchivos[i]);
-        arrayRutasArchivos = arrayRutasArchivos.concat(recorrerCarpeta(rutaArchivos));
+      arrayRutasArchivos = arrayRutasArchivos.concat(recorrerCarpeta(rutaArchivos));
     }
   }
   return filtrarArchivosMd(arrayRutasArchivos);

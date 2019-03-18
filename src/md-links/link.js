@@ -1,11 +1,11 @@
 const myMarked = require('marked'); 
-import { leerArchivo } from './fs.js';
+const fs = require('fs');
 
 export const extraerLinks = (arrRutasArchivosMd) => {
   const links = [];
   for (let i = 0; i < arrRutasArchivosMd.length; i++) {
     let archivo = arrRutasArchivosMd[i];
-    let contArchivo = leerArchivo(archivo, 'utf-8');
+    let contArchivo = fs.readFileSync(archivo, 'utf-8');
     const renderer = new myMarked.Renderer();
     renderer.link = (href, title, text) => {
       return links.push({
