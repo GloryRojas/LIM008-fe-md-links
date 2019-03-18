@@ -1,9 +1,10 @@
 import { validarLinks } from './md-links/validate.js';
-import { recorrerCarpeta, transformarAAbsoluta } from './md-links/moduls.js';
+import { recorrerCarpeta } from './md-links/moduls.js';
 import { extraerLinks } from './md-links/link.js';
+const ruta = require('path');
 
 const mdLinks = (path, options) => new Promise((resolve) => {
-  const rutaAbs = transformarAAbsoluta(path);
+  const rutaAbs = ruta.resolve(path);
   const objLinks = extraerLinks(recorrerCarpeta(rutaAbs));
   if (options === undefined) {
     resolve(objLinks);

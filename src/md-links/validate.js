@@ -6,7 +6,7 @@ export const validarLinks = (arrayObjetos) => {
       if (response.status >= 200 && response.status < 400) {
         objLink.code = response.status;
         objLink.stat = 'OK';
-      } else if (response.status >= 400 && response.status < 600) {
+      } else {
         objLink.code = response.status;
         objLink.stat = 'FAIL';
       }

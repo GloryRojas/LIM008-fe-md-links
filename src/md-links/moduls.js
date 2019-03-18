@@ -1,22 +1,18 @@
 const path = require('path');
 const fs = require('fs');
 
-export const transformarAAbsoluta = ruta => path.resolve(ruta);
-
-export const filtrarArchivosMd = arrRutasArchivos => arrRutasArchivos.filter(arr => path.extname(arr) === '.md');
-
 export const recorrerCarpeta = (ruta) => {
   let arrayRutasArchivos = [];
   if (fs.statSync(ruta).isFile()) {
     arrayRutasArchivos.push(ruta);
   } else {
     let listaArchivos = fs.readdirSync(ruta);
-    for (let i = 0; i < listaArchivos.length; i++) {
-      let rutaArchivos = path.join(ruta, listaArchivos[i]);
+    listaArchivos.forEach((archivo) => {
+      let rutaArchivos = path.join(ruta, archivo);
       arrayRutasArchivos = arrayRutasArchivos.concat(recorrerCarpeta(rutaArchivos));
-    }
+    });
   }
-  return filtrarArchivosMd(arrayRutasArchivos);
+  return arrayRutasArchivos.filter(arr => path.extname(arr) === '.md');
 };
 
 export const templateDeResultado = (arrObj) => {
