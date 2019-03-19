@@ -14,7 +14,7 @@ const output3 = [
     text: 'Perrito 2',
     file: path.resolve('./src/md-links/ejemplo.md') },
   { href: 'https://gloryrojas.github.io/lim-2018-11-bc-core-am-cipher/src/&quot;',
-    text: 'https://gloryrojas.github.io/lim-2018-11-bc-core-am-cipher/src/&quot;',
+    text: 'https://gloryrojas.github.io/lim-2018-11-bc-core-a',
     file: path.resolve('./src/md-links/ejemplos-md/archivo1.md') } 
 ];
 
