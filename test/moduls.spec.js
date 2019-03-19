@@ -1,12 +1,13 @@
 import { recorrerCarpeta } from '../src/md-links/moduls.js';
+const path = require('path');
 
-const output = [`${process.cwd()}\\src\\md-links\\ejemplo.md`, `${process.cwd()}\\src\\md-links\\ejemplos-md\\archivo1.md`];
+const output = [path.resolve('./src/md-links/ejemplo.md'), path.resolve('./src/md-links/ejemplos-md/archivo1.md')];
 
 describe('recorrerCarpeta', () => {
   it('debería ser una función', () => {
     expect(typeof recorrerCarpeta).toBe('function');
   });
   it('debería devolver un array con un objeto por cada link', () => {
-    expect(recorrerCarpeta(`${process.cwd()}\\src\\md-links`)).toEqual(output);
+    expect(recorrerCarpeta(path.resolve('./src/md-links'))).toEqual(output);
   });
 });
