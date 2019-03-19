@@ -7,6 +7,6 @@ describe('recorrerCarpeta', () => {
     expect(typeof recorrerCarpeta).toBe('function');
   });
   it('debería devolver un array con un objeto por cada link', () => {
-    expect(recorrerCarpeta(`${process.cwd()}\\src\\md-links`)).toEqual(output);
+    expect(recorrerCarpeta(`${process.cwd()}/src/md-links`)).toEqual(output);
   });
 });

@@ -10,8 +10,8 @@ export const extraerLinks = (arrRutasArchivosMd) => {
     renderer.link = (href, title, text) => {
       return links.push({
         href: href,
-        text: text,
-        file: archivo,
+        text: text.slice(0, 50),
+        file: archivo.normalize(),
       });
     };
     myMarked(contArchivo, { renderer: renderer });
