@@ -22,5 +22,6 @@ export const cli = (args) => new Promise((resolve) => {
     mdLinks(args[0]).then(resp => resolve(templateDeResultado(resp)));
   }
 });
-// cli(args1).then(resp => console.log(resp));
+
+cli(args1).then(resp => console.log(resp));
 
