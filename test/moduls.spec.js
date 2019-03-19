@@ -1,6 +1,6 @@
 import { recorrerCarpeta } from '../src/md-links/moduls.js';
 
-const output = ['C:\\Users\\Glory\\Documents\\Laboratoria 18-19\\LIM008-fe-md-links\\src\\md-links\\ejemplo.md', 'C:\\Users\\Glory\\Documents\\Laboratoria 18-19\\LIM008-fe-md-links\\src\\md-links\\ejemplos-md\\archivo1.md'];
+const output = [`${process.cwd()}\\src\\md-links\\ejemplo.md`, `${process.cwd()}\\src\\md-links\\ejemplos-md\\archivo1.md`];
 
 describe('recorrerCarpeta', () => {
   it('debería ser una función', () => {

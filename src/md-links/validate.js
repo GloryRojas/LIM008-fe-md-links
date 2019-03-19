@@ -1,6 +1,7 @@
 const fetch = require('node-fetch') ;  
 
-export const validarLinks = (arrayObjetos) => {
+export const validarLinks = (arrObjetos) => {
+  const arrayObjetos = [...arrObjetos];
   const arrPromesas = arrayObjetos.map(objLink => fetch(objLink.href)
     .then((response) => {
       if (response.status >= 200 && response.status < 400) {
