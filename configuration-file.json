@@ -1,11 +1,8 @@
 {
   "repoNames": [
-    "author-p100152-e1214140.adobeaemcloud.com",
-    "author-p100152-e918678.adobeaemcloud.com",
     "delivery-p100152-e1214140.adobeaemcloud.com"
   ],
   "aemTierType": [
-    "delivery",
-    "author"
+    "delivery"
   ]
 }
